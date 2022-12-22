@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <meta charset="UTF-8">
+  <head>
+    <title>다크모드 화이트 모드</title>
+    <script src="https://code.jquery.com/jquery-3.4.1.js"   
+	integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="   
+	crossorigin="anonymous">
+</script>
+  </head>
+  <body>
+<!--css-->
+    <style>
+      *{
+        margin:10px;
+        font: small-caps bold 24px/1 sans-serif;
+      }
+      .modebtn{
+        width: 50px;
+				height: 50px;
+        cursor : pointer;
+        font-size: 40px;
+        border-radius: 40px;
+        transition: all ease 1s;
+      }
+      .modebtn:hover {
+        transform: rotate( 180deg );
+      }
+      .text{
+        width: 130px;
+        border: 5pt inset #000000;
+        border-radius: 40px;
+        text-align: center;
+      }
+      .dark{
+        color:white;
+        background-color: rgb(37, 37, 37);
+      }
+    </style>
+<!--html-->
+   <div class="modebtn">🌙 </div>
+   <div class="text">화이트모드</div>
+   전체글도 색깔이 바뀝니다.<br>
+   그리고 심심해서 css효과도 주었습니다.
+<!--javascript / jquery-->
+<script>
+  let mode = true;
+ $(".modebtn").on("click",function(){
+  mode=!mode;      //mode=true랑 뭔차이지? 아 ~~ mode=true는 무조건 true라서 다크모드로만 갈수 있음 따라서 mode의 반대인 !mode를 써줘야함
+  if(mode === true){  //화이트모드
+    $(".modebtn").html("🌙");
+    $(".text").html("화이트모드");
+    $(".text").css("border-color","black");
+    $("body").removeClass("dark");
+    
+  }
+  else{ //다크모드
+    $(".modebtn").html("☀️");
+    $(".text").html("다크모드");
+    $(".text").css("border-color","white");
+    $("body").addClass("dark");
+  }
+ })
+</script>
+  </body>
+</html>
